@@ -1,0 +1,14 @@
+.wrap_show .wrap_hide {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width:200px;
+    height: 200px;
+    background-size: contain;
+    background: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+}
+
+.wrap_hide {
+    display: none;
+}
