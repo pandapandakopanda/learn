@@ -5,21 +5,11 @@ import './index.css'
 
 
 class Pop extends React.Component {
-
-    constructor() {
-        super()
-        this.state ={
-            isShow: this.props.isShow,
-            className: function(){
-                (this.state.isShow)?'wrap_hide':'wrap_show'
-            }
-        }
-    } 
     
 
     render(){
         return(
-            <div className={(className===undefined)? 'wrap_show' : this.state.className}>
+            <div className='wrap_true'>
                 I AM POP
             </div>
         )

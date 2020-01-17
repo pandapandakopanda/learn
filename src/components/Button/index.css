@@ -1,10 +1,50 @@
-.bigButton, .pinkButton {
+button {
     display: flex;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    color: white;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    width: 200px;
-    height: 50px;
+
 }
 
-.pinkButton {
-    background: pink;
+.button[size='medium'] {
+    width: 200px;
+    height: 100px;
+}
+
+.button[size='small'] {
+    width: 150px;
+    height: 75px;
+}
+
+button:hover {
+    box-shadow: 1px 1px 10px black;
+}
+
+.button1, .button7{
+    background: rgb(7, 66, 44);
+}
+
+.button2, .button5{
+    background: red
+}
+
+.button3, .button6{
+    background: rgb(173, 96, 96);
+    
+}
+
+.button4, .button8 {
+    background:blueviolet
+}
+
+.sliderbutton{
+    width:50px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius:0
 }

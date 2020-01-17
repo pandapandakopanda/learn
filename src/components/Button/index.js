@@ -6,11 +6,29 @@ import './index.css'
 
 
 class Button extends React.Component {
-    render(){
+
+    state = {
+           btnNum: '',
+           buttonType:this.props.type,
+           size: this.props.size
+        }
+        
+        
+        setStyle() {
+            if(this.state.buttonType === '') this.setState({btnNum:this.props.onCLickHolder()})
+            else this.props.onClickHolder()
+        }
+        setStyle = this.setStyle.bind(this)
+        
+        
+        render(){
+            const classname = `${this.state.buttonType}button${this.state.btnNum}` 
+    
         return(
             <button
-                onClick={this.props.onCLickHolder}
-                className={this.props.className}
+                onClick={this.setStyle}
+                className={classname}
+                size = {this.size}
             >
                 {this.props.title}
             </button>

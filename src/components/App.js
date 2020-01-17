@@ -3,6 +3,7 @@ import '../styles/app.css'
 import Components  from './components'
 import Button from './Button'
 import Picture from './Picture'
+import Slider from './Slider'
 import * as buttonFunc from './Button/buttonFunc'
 import * as imgFunc from './Picture/imgFunc'
 
@@ -28,13 +29,18 @@ class App extends Component {
                 </div>
 
                 <div className='main'>
+
                     <Button  
                         title='Hey'
-                        className='pinkButton'
-                        onCLickHolder={buttonFunc.openAlert.bind(this,'HELLO')}
+                        className='button'
+                        type=''
+                        size='medium'
+                        onCLickHolder={buttonFunc.calc}
                     />
 
-                    <Picture onClickHolder={imgFunc.openModalWindow} />
+                     <Picture onClickHolder={imgFunc.onCLickHolder} /> 
+
+                     <Slider />
 
                 </div>
                 

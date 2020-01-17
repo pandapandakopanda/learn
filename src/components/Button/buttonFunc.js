@@ -1,13 +1,10 @@
-import React from 'react'
-
-
 function openAlert(text){
     alert(text)
 }
 
 
 function calc() {
-    return console.log(2+3)
+    return Math.floor(Math.random(1)*10)
 }
 
 
