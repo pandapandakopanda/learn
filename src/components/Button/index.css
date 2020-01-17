@@ -11,12 +11,12 @@ button {
 
 }
 
-.button[size='medium'] {
+[size='medium'] {
     width: 200px;
     height: 100px;
 }
 
-.button[size='small'] {
+[size='small'] {
     width: 150px;
     height: 75px;
 }
