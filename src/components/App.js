@@ -2,10 +2,9 @@ import React, {Component} from 'react'
 import '../styles/app.css'
 import Components  from './components'
 import Button from './Button'
-import Picture from './Picture'
-import Slider from './Slider'
+import Input from './Input'
 import * as buttonFunc from './Button/buttonFunc'
-import * as imgFunc from './Picture/imgFunc'
+
 
 
 class App extends Component {
@@ -38,9 +37,12 @@ class App extends Component {
                         onCLickHolder={buttonFunc.calc}
                     />
 
-                     <Picture onClickHolder={imgFunc.onCLickHolder} /> 
-
-                     <Slider />
+                     <Input 
+                        type='text'
+                        disabled
+                        plaseholder='type any'
+                        classNames={['red', 'big']}
+                        />
 
                 </div>
                 

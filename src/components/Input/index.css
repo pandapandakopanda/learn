@@ -1,0 +1,27 @@
+.normal_input {
+    width: 300px;
+    outline: none;
+    border: 2px solid black;
+
+}
+
+.red {
+    background: rgb(240, 41, 41);
+}
+
+.big {
+    width: 350px;
+    height: 25px;
+    font-size: 18px;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.increase_button {
+    width: 20px;
+    height: 20px;
+    border-radius: 1px;
+    background: red;
+}

@@ -7,32 +7,35 @@ import './index.css'
 
 class Button extends React.Component {
 
-    state = {
-           btnNum: '',
-           buttonType:this.props.type,
-           size: this.props.size
-        }
-        
-        
-        setStyle() {
-            if(this.state.buttonType === '') this.setState({btnNum:this.props.onCLickHolder()})
-            else this.props.onClickHolder()
-        }
-        setStyle = this.setStyle.bind(this)
-        
-        
+    state={
+        isDown:true
+    }
+
+    onMouseDown=()=>{
+        this.setState({isDown: false})
+        console.log('isDown: ', this.state.isDown);
+    }
+
+    onMouseUp=()=>{
+        console.log(this.state.isDown);
+        this.setState({isDown: true})
+    }
+
+     
         render(){
-            const classname = `${this.state.buttonType}button${this.state.btnNum}` 
+            const classname = `${this.props.type}button` 
     
-        return(
-            <button
-                onClick={this.setStyle}
-                className={classname}
-                size = {this.size}
-            >
-                {this.props.title}
-            </button>
-        )
+            return(
+                <button
+                    onClick={this.props.onClick}
+                    onMouseDown = {this.onMouseDown}
+                    onMouseUp = {this.onMouseUp}
+                    className={classname}
+                    title = {this.props.title}
+                >
+                    {this.props.children}
+                </button>
+            )
     }
 }
 
