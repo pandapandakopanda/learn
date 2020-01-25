@@ -8,18 +8,24 @@ import './index.css'
 class Button extends React.Component {
 
     state={
-        isDown:true
+        isDown:false
     }
 
     onMouseDown=()=>{
-        this.setState({isDown: false})
-        console.log('isDown: ', this.state.isDown);
+        this.setState({isDown:true})
+        setTimeout(() => {
+            this.props.onMouseDown(this.state.isDown)
+        }, 1000);
     }
 
     onMouseUp=()=>{
-        console.log(this.state.isDown);
-        this.setState({isDown: true})
+        this.setState({isDown: false})
     }
+
+    componentDidMount(){
+        window.addEventListener('mouseup', this.onMouseUp)
+    }
+
 
      
         render(){

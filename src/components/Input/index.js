@@ -21,9 +21,19 @@ class Input extends React.Component {
             this.setState({value: +this.state.value + 1})
     }
 
+    onMouseDown=(isDown)=>{
+        setTimeout(() => {
+            console.log('work');
+            this.setState({value: +this.state.value + 1})
+        }, 500);
+        if (isDown) return this.onMouseDown(isDown)
+        else console.log(isDown);
+    }
+
     getClassName=()=>{
         return `normal_input ${this.props.classNames.join(' ')}`
     }
+
 
     render(){
         return(
@@ -38,7 +48,7 @@ class Input extends React.Component {
 
                 <Button 
                     title = 'hey'
-                    onMouseDown={this.increaseNumber}
+                    onMouseDown={this.onMouseDown}
                     type='increase_'
                     onClick={this.increaseNumber}
                 />
