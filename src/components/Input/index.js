@@ -4,12 +4,16 @@ import Button from '../Button';
 
 
 
-class Input extends React.Component {
 
+class Input extends React.Component {
+    
 
     state = {
         value: '',
     }
+
+    isDown = true
+
 
     сhangeHolder=(ev)=>{
         const {value} = ev.target
@@ -21,13 +25,22 @@ class Input extends React.Component {
             this.setState({value: +this.state.value + 1})
     }
 
-    onMouseDown=(isDown)=>{
-        setTimeout(() => {
-            console.log('work');
-            this.setState({value: +this.state.value + 1})
-        }, 500);
-        if (isDown) return this.onMouseDown(isDown)
-        else console.log(isDown);
+    onMouseDown=()=> {
+        this.isDown = true
+        let increase=()=>{
+            setTimeout(() => {
+                if(this.isDown) {
+                    this.increaseNumber()
+                    increase()
+                }
+                else return
+            }, 100);
+        }
+        increase()
+    }
+
+    onMouseUp =()=>{
+        this.isDown = false
     }
 
     getClassName=()=>{
@@ -36,7 +49,9 @@ class Input extends React.Component {
 
 
     render(){
+        
         return(
+            
             <div>
                 <input 
                     onChange={this.сhangeHolder}
@@ -49,6 +64,7 @@ class Input extends React.Component {
                 <Button 
                     title = 'hey'
                     onMouseDown={this.onMouseDown}
+                    onMouseUp={this.onMouseUp}
                     type='increase_'
                     onClick={this.increaseNumber}
                 />
