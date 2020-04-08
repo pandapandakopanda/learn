@@ -6,29 +6,41 @@ import './index.css'
 
 class Header_blocks extends React.Component {
 
-
     state = {
-        active: this.props.active,
+        className: 'default'
     }
 
     onClick = ()=>{
-        let {active} = this.state 
-        
+        console.log(this.props.active);
+        console.log('this.buttonProps: ', this.buttonProps);
         this.setState({
-            active:(active === false) ? true : false,
+            className: this.calcClasses(this.buttonProps)
         })
     }
 
+    buttonProps = {
+        default: true,
+        active: (this.props.active === true),
+        hidden: (this.props.active === false)
+    }
+
+
+
+    calcClasses = (obj) =>{
+        let className = ''
+        Object.keys(obj).forEach(key => {if (obj[key]) className += key.toString()+' '})       
+        return className.trim()
+    }
    
    
    render(){
 
-        let className = (this.state.active)? 'active':'default'
+        let className = this.state.className
 
 
         return(
             <div className={`blocks${(className!==undefined)? ` ${className}` : ''} `}
-                name = {this.props.name}
+                data-name = {this.props.name}
                 active = {this.state.active}
                 onClick = {this.onClick}
             >
