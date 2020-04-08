@@ -11,28 +11,22 @@ class Header extends React.Component {
 
     state = {
         active: false,
-        activeName: null
     }
     
 
     onClick = (ev)=>{
         let {target} = ev       
-
-        this.setState({
-            activeName: target.id
-        })
     }
 
     render(){
 
-        const elements = this.names.map(el=> {            
+        const elements = this.names.map(name=> {            
             return <HeadBlocks 
-                        id={el} 
-                        key={this.names.indexOf(el)}
+                        name={name} 
+                        key={name}
                         active = {this.state.active}
-                        activeName={this.state.activeName}
                     >
-                        {el}
+                        {name}
                     </HeadBlocks>
         })
 

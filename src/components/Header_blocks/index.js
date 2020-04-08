@@ -12,9 +12,6 @@ class Header_blocks extends React.Component {
     }
 
     onClick = ()=>{
-        let {activeName} = this.props
-        console.log('activeName: ', activeName);
-        console.log(this.props.id);
         let {active} = this.state 
         
         this.setState({
@@ -31,7 +28,7 @@ class Header_blocks extends React.Component {
 
         return(
             <div className={`blocks${(className!==undefined)? ` ${className}` : ''} `}
-                id = {this.props.id}
+                name = {this.props.name}
                 active = {this.state.active}
                 onClick = {this.onClick}
             >
