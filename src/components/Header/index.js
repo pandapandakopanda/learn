@@ -10,24 +10,33 @@ class Header extends React.Component {
     names = ['one','two','three','four','five']
 
     state = {
-        active: false,
         activeName: null
     }
     
 
 
-    onClick = (ev)=>{
-        let {target} = ev     
+    onClick = (ev)=>{   
+        
+        if(ev.target.className.indexOf('button') === -1) {
+            this.setState({
+                activeName: null
+            })
+            return
+        }
+        
+        let {name}  = ev.target.dataset
+        let {activeName} = this.state
+        
         this.setState({
-            activeName:target.dataset.name
-        }, ()=>{
-            console.log('target.dataset.name: ', target.dataset.name);
-            console.log(this.state.activeName);
-            
+            activeName:(activeName === name)? null : name
         })  
     }
 
-    isActive = (name => this.state.activeName === name) 
+    isActive = (name) =>  {
+        if (this.state.activeName === null ) return null
+        else return this.state.activeName === name
+    }
+
 
     render(){
 

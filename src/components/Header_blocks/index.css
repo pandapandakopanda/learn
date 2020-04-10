@@ -1,29 +1,31 @@
-.blocks {
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 25px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 15%;
-    height: 40%;
+    height: 30%;
     background:rgb(196, 77, 233);
     color: rgb(233, 208, 208);
     cursor: pointer;
     user-select: none;
 }
 
-.blocks:hover{
+.button:hover{
     background:pink;
     color: rgb(121, 8, 136);
 }
 
 .hidden {
     background: rgb(82, 76, 88);
-    color:rgb(182, 182, 182);
+    color:rgb(116, 116, 116);
+    font-size: 20px;
 }
 
 .active {
     background:pink;
     color: rgb(121, 8, 136);
+    font-size: 30px;
 }
 
