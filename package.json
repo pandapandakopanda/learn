@@ -28,6 +28,8 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "react-router-dom": "^5.1.2",
+    "react-router5": "^8.0.1"
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.css'
 import HeadBlocks from '../Header_blocks'
+import { BaseLink, useRoute } from 'react-router5'
 
 
 
@@ -40,24 +41,32 @@ class Header extends React.Component {
 
     render(){
 
-        const elements = this.names.map(name => {            
+        const elements = this.names.map(name => {         
+            const isReload = names.indexOf(name)===0
             return <HeadBlocks 
                         name={name} 
                         key={name}
                         active = {this.isActive(name)}
                     >
+                        <BaseLink 
+                            router={router}
+                            routeName={name}
+                            routeOptions={{reload:isReload}}
+                        >
                         {name}
+                        </BaseLink>
                     </HeadBlocks>
         })
+        const { router } = useRoute()
 
         return(
 
-            <div className = 'header'
+            <header
                  onClick = {this.onClick}
             >
                 {elements}
 
-            </div>
+            </header>
 
         )
     }

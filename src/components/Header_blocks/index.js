@@ -12,16 +12,13 @@ class Header_blocks extends React.Component {
 
 
     calcClasses = (obj) =>{
-        let className = 'button'
-        Object.keys(obj).forEach(key => {if (obj[key]) className +=' '+ key.toString()+' '})       
-        return className.trim()
+        return Object.keys(obj).filter(key => !!obj[key] ).join(' ')  
     }
-   
-   
+      
    render(){
 
         const className = this.calcClasses({
-                            '': this.props.active === null,
+                            button:true,
                             active: this.props.active === true,
                             hidden: this.props.active === false
                         })

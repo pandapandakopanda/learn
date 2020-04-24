@@ -6,24 +6,23 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 15%;
     height: 30%;
+    border-radius: 10px;
+    border:3px solid  rgb(121, 8, 136);
     background:rgb(196, 77, 233);
     color: rgb(233, 208, 208);
     cursor: pointer;
     user-select: none;
-}
-
-.button:hover{
-    background:pink;
-    color: rgb(121, 8, 136);
+    transition: all 0.1s;
 }
 
 .hidden {
     background: rgb(82, 76, 88);
+    border-color: black;
     color:rgb(116, 116, 116);
     font-size: 20px;
 }
 
-.active {
+.active, .button:hover {
     background:pink;
     color: rgb(121, 8, 136);
     font-size: 30px;
