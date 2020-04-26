@@ -1,0 +1,41 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 15%;
+    height: 30%;
+    border:1px solid  rgb(0, 0, 0);
+    background:rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    transition: all 0.1s;
+    a {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        color:rgb(0, 0, 0);
+        
+    }
+}
+
+
+
+.hidden {
+}
+
+.active, .button:hover {
+    background:rgb(10, 10, 10);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+        a{
+            color: rgb(255, 255, 255);
+        }
+}
+

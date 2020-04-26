@@ -1,71 +1,54 @@
 import React from 'react'
-import './index.css'
-import HeadBlocks from '../Header_blocks'
-import { BaseLink, useRoute } from 'react-router5'
+import './index.scss'
+import HeadBlocks from '../HeaderBlocks'
+import { BaseLink, withRoute } from 'react-router5'
+import diamond from '../images/diamond.png'
 
 
 
 
 class Header extends React.Component {
 
-    names = ['one','two','three','four','five']
-
-    state = {
-        activeName: null
-    }
-    
+  names = ['one','two','three','four','five']
 
 
-    onClick = (ev)=>{   
-        
-        if(ev.target.className.indexOf('button') === -1) {
-            this.setState({
-                activeName: null
-            })
-            return
-        }
-        
-        let {name}  = ev.target.dataset
-        let {activeName} = this.state
-        
-        this.setState({
-            activeName:(activeName === name)? null : name
-        })  
+    onClick = ()=>{
+   
     }
 
     isActive = (name) =>  {
-        if (this.state.activeName === null ) return null
-        else return this.state.activeName === name
+
     }
 
-
     render(){
-
-        const elements = this.names.map(name => {         
+        const { router } = this.props
+        const activeName = this.props.route.name
+        
+        const elements = this.names.map((name, i,names) => {
             const isReload = names.indexOf(name)===0
-            return <HeadBlocks 
-                        name={name} 
-                        key={name}
-                        active = {this.isActive(name)}
-                    >
-                        <BaseLink 
-                            router={router}
-                            routeName={name}
-                            routeOptions={{reload:isReload}}
-                        >
-                        {name}
-                        </BaseLink>
-                    </HeadBlocks>
+            const isActive = name === activeName
+            return (
+                <HeadBlocks
+                    name={name}
+                    key={name}
+                    active={isActive}
+                >
+                <BaseLink
+                    router={router}
+                    routeName={name}
+                    routeOptions={{reload:isReload}}
+                >
+                    {name}
+                </BaseLink>
+            </HeadBlocks>
+            )
         })
-        const { router } = useRoute()
 
         return(
 
-            <header
-                 onClick = {this.onClick}
-            >
+            <header onClick = {this.onClick}>
+                <img id='diamond' src={diamond} alt='diamond'/>
                 {elements}
-
             </header>
 
         )
@@ -73,4 +56,4 @@ class Header extends React.Component {
 }
 
 
-export default Header
+export default withRoute(Header)

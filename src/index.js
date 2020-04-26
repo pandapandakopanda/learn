@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
 import { RouterProvider } from 'react-router5'
-import creatRouter from './creat-router'
+import createRouter from './create-router'
+import 'normalize.css'
+import './index.scss'
 
-
-const router = creatRouter()
+const router = createRouter(true)
+const app = <RouterProvider router={ router }><App /></RouterProvider>
 
 router.start(()=>{
     ReactDOM.render(
-        <RouterProvider router={router}>
-            <App />
-        </RouterProvider>
+        app
     , document.querySelector('#root'))
 })
