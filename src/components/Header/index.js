@@ -16,10 +16,6 @@ class Header extends React.Component {
    
     }
 
-    isActive = (name) =>  {
-
-    }
-
     render(){
         const { router } = this.props
         const activeName = this.props.route.name

@@ -7,7 +7,7 @@ import routes from './routes'
 
 export default function configureRouter(useListenersPlugin = false) {
     const router = createRouter(routes, {
-        defaultRoute: 'one'
+        defaultRoute: routes[0].name
     })
 
     router.usePlugin(loggerPlugin)
