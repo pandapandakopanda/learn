@@ -6,7 +6,7 @@ import { BaseLink, withRoute } from 'react-router5'
 
 class Nav extends Component {
 
-    list = ['kittens','doggos','pigeon','pork','mice']
+    list = ['kittens','doggos','pigeon','pork','quiz']
 
     showTarget=(el)=>{
         console.log(el.target);

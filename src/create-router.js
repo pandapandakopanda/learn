@@ -6,15 +6,15 @@ import routes from './routes'
 
 
 export default function configureRouter(useListenersPlugin = false) {
-    const router = createRouter(routes, {
-        defaultRoute: routes[0].name
-    })
+  const router = createRouter(routes, {
+    defaultRoute: routes[0].name,
+  })
 
-    router.usePlugin(loggerPlugin)
-    router.usePlugin(browserPlugin({useHash: true}))
-    if (useListenersPlugin) {
-        router.usePlugin(listenersPlugin());
-    }
+  router.usePlugin(loggerPlugin)
+  router.usePlugin(browserPlugin({ useHash: true }))
+  if (useListenersPlugin) {
+    router.usePlugin(listenersPlugin())
+  }
 
-    return router
+  return router
 }
